@@ -1,14 +1,12 @@
 package application;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
 import model.entities.Department;
-import model.entities.Seller;
 
 public class Program2 {
 
@@ -33,6 +31,20 @@ public class Program2 {
 		Department newdepartment = new Department(null, "FB");
 		departmentDao.insert(newdepartment);
 		System.out.println("Inserted new id = " + newdepartment.getId());
+		
+		System.out.println("\n=== TEST 4: department update ====");
+		department = departmentDao.findById(7);
+		department.setName("FB updated");
+		departmentDao.update(department);
+		System.out.println("Update completed");
+		
+		System.out.println("\n=== TEST 5: department delete ====");
+		System.out.println("Enter id for delete test: ");
+		int id = sc.nextInt();
+		departmentDao.deleteById(id);
+		System.out.println("Delete completed");
+		
+		sc.close();
 		
 	}
 
