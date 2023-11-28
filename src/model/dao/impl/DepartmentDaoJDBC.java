@@ -42,6 +42,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 					int id = rs.getInt(1);
 					obj.setId(id);
 				}
+				DB.closeResultSet(rs);
 			}
 			else {
 				throw new DbException("Unexpected error! No rows affected!");
